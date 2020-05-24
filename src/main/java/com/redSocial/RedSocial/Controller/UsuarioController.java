@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.redSocial.RedSocial.Util.UtilUsuario;
 
+import com.redSocial.RedSocial.Util.UtilUsuario;
 import com.redSocial.RedSocial.dao.UsuarioDAO;
 import com.redSocial.RedSocial.entity.Usuario;
 import com.redSocial.RedSocial.entity.UsuarioForm;
