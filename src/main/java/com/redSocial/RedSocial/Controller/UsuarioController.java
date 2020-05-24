@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.redSocial.RedSocial.Util.UtilUsuario;
 
 import com.redSocial.RedSocial.dao.UsuarioDAO;
 import com.redSocial.RedSocial.entity.Usuario;
+import com.redSocial.RedSocial.entity.UsuarioForm;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -50,8 +52,10 @@ public class UsuarioController {
 	
 	@ApiOperation(value = "Create a Users", notes = "Return the created User" )
 	@PostMapping(value="register")
-	public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario){
-		Usuario newUsuario =usuarioDAO.save(usuario);
+	public ResponseEntity<Usuario> createUsuario(@RequestBody UsuarioForm usuario){
+		UtilUsuario uU = new UtilUsuario();
+		Usuario newUsuario = uU.parseUsuario(usuario);
+		newUsuario =usuarioDAO.save(newUsuario);
 		return ResponseEntity.ok(newUsuario);
 	}
 	

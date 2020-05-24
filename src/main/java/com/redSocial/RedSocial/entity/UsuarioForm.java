@@ -1,43 +1,26 @@
 package com.redSocial.RedSocial.entity;
 
+import java.io.File;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="users")
-@Access(value=AccessType.FIELD)
-public class Usuario {
-	
-	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+public class UsuarioForm {
 	private int id;
 	private String role;
-	@Column(name="email", nullable=false)
 	private String email;
 	private String name;
 	private String surname;
-	@Column(name="password", nullable=false)
 	private String password;
-	@Column(name="nick", nullable=false)
 	private String nick;
 	private String bio;
 	private String active;
-	private String image;
+	private File image;
 	
 	
 	
-	public Usuario() {
+	public UsuarioForm() {
 	}
 
 
-	public Usuario(int id, String email, String password, String nick) {
+	public UsuarioForm(int id, String email, String password, String nick) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
@@ -99,10 +82,10 @@ public class Usuario {
 	public void setActive(String active) {
 		this.active = active;
 	}
-	public String getImage() {
+	public File getImage() {
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(File image) {
 		this.image = image;
 	}
 
